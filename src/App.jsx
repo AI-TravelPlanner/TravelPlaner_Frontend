@@ -1,13 +1,15 @@
-import { Button } from "./components/ui/button";
+import Layout from "./layout/Layout";
+import { ThemeProvider } from "./_contextapi/ThemeContext";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="">Hello</h1>
-        <Button>Hello</Button>
-      </div>
-    </>
+    <ThemeProvider>
+      <Layout>
+        <div>
+          <h1 className="">Hello</h1>
+        </div>
+      </Layout>
+    </ThemeProvider>
   );
 }
 
