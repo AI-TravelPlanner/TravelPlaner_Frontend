@@ -1,14 +1,19 @@
+import { Suspense } from "react";
 import Layout from "./layout/Layout";
 import { ThemeProvider } from "./_contextapi/ThemeContext";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./layout/AppRoutes";
 
 function App() {
   return (
     <ThemeProvider>
-      <Layout>
-        <div>
-          <h1 className="">Hello</h1>
-        </div>
-      </Layout>
+      <BrowserRouter>
+        <Layout>
+          <Suspense fallback={<div>Loading...</div>}>
+            <AppRoutes />
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
