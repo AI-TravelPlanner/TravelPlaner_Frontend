@@ -1,7 +1,8 @@
 import React from "react";
+import TravelForm from "./TravelForm";
 
 const TripPage = () => {
-  return <div>TripPage</div>;
+  return <TravelForm />;
 };
 
 export default TripPage;
