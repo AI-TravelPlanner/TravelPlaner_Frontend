@@ -8,7 +8,7 @@ const sections = [
   {
     title: "Travel Planner",
     items: [{ 
-      name: "AI-powered solution can assist in creating the best travel itineraries based on duration, group, size, and budget. ❤️ to travel ✈️"
+      name: "AI-powered solution can assist in creating the best travel itineraries. ❤️ to travel ✈️"
     }]
   },
   {
