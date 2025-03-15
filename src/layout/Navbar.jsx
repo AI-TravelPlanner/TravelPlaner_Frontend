@@ -22,7 +22,7 @@ const Navbar = ({ buttonNames }) => {
                 <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center">
                     <FaPlaneUp className="mr-3" />
                     <span className="font-semibold text-xl">
-                        Travel Planner
+                        Travel Planner Hi 
                     </span>
                 </div>
                 <div>
