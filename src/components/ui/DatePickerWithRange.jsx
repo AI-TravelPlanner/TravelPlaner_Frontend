@@ -21,7 +21,7 @@ import {
 export function DatePickerWithRange({
     className,
     onDateChange,
-    startYear = getYear(new Date()) - 100,
+    startYear = getYear(new Date()),
     endYear = getYear(new Date()) + 100
 }) {
 
@@ -64,6 +64,13 @@ export function DatePickerWithRange({
         console.log("Selected Year:", year);
         const newMonth = setYear(currentMonth, parseInt(year));
         setCurrentMonth(newMonth);
+    }
+
+    const isDateDisabled = (date) => {
+        if (date < new Date()) {
+            return true
+        }
+        return false
     }
 
     return (
@@ -134,6 +141,7 @@ export function DatePickerWithRange({
                         selected={date}
                         onSelect={handleDateSelect}
                         numberOfMonths={2}
+                        disabled={isDateDisabled}
                     />
                 </PopoverContent>
             </Popover>
