@@ -7,6 +7,9 @@ import { FaUser, FaUsers, FaHome } from "react-icons/fa";
 import { DatePickerWithRange } from "@/components/ui/DatePickerWithRange";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
+import { useTheme } from "../_contextapi/ThemeContext";
+import { set } from "date-fns";
 
 const TravelForm = () => {
     const [formData, setFormData] = useState({
@@ -18,6 +21,9 @@ const TravelForm = () => {
         additionalNotes: ""
     });
 
+    const { theme } = useTheme();
+    const [validations, setValidations] = useState({});
+
     // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,16 +31,56 @@ const TravelForm = () => {
             ...prevData,
             [name]: value,
         }));
+
+        // Clear validation errors
+        if (validations[name]) {
+            setValidations((prevData) => ({
+                ...prevData,
+                [name]: "",
+            }));
+        }
+    };
+
+
+
+    const validateForm = () => {
+        const errors = {};
+
+        if (!formData.tripName.trim()) errors.tripName = "Trip name is required.";
+        if (!formData.location.trim()) errors.location = "Location is required.";
+        if (!formData.dateRange.from || !formData.dateRange.to) errors.dateRange = "Travel dates are required.";
+        if (!formData.budget.trim() || isNaN(Number(formData.budget)) || Number(formData.budget) <= 0) {
+            errors.budget = "Budget must be a positive number.";
+        }
+        if (!formData.travelWith) errors.travelWith = "Please select who you are traveling with.";
+
+        return errors;
     };
 
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const errors = validateForm();
+
+        if (Object.keys(errors).length > 0) {
+            setValidations(errors);
+            return;
+        }
+
+        setValidations({});
         console.log("Form Data Submitted:", formData);
     };
 
+
+
+
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+        <form onSubmit={handleSubmit}
+            className={cn(
+                "max-w-md mx-auto p-6 bg-white shadow-md rounded-lg",
+                theme === 'light' ? 'bg-white text-gray-900' : 'bg-gray-500 text-blue-200'
+            )}>
             <h2 className="text-2xl font-bold mb-6 text-center">Plan Your Trip</h2>
 
             {/* Trip Name */}
@@ -50,8 +96,10 @@ const TravelForm = () => {
                     onChange={handleChange}
                     placeholder="Enter a name for your trip"
                     className="w-full"
-                    required
                 />
+                {validations.tripName && (
+                    <p className="text-red-500 text-sm">{validations.tripName}</p>
+                )}
             </div>
 
             {/* Location of Travel */}
@@ -67,8 +115,10 @@ const TravelForm = () => {
                     onChange={handleChange}
                     placeholder="Enter your destination"
                     className="w-full"
-                    required
                 />
+                {validations.location && (
+                    <p className="text-red-500 text-sm">{validations.location}</p>
+                )}
             </div>
 
             {/* Length (Number of Days) */}
@@ -83,6 +133,9 @@ const TravelForm = () => {
                             dateRange: range,
                         }))
                     } />
+                {validations.dateRange && (
+                    <p className="text-red-500 text-sm">{validations.dateRange}</p>
+                )}
             </div>
 
             {/* Budget */}
@@ -98,8 +151,10 @@ const TravelForm = () => {
                     onChange={handleChange}
                     placeholder="Enter your budget"
                     className="w-full"
-                    required
                 />
+                {validations.budget && (
+                    <p className="text-red-500 text-sm">{validations.budget}</p>
+                )}
             </div>
 
             {/* Who Do You Plan on Traveling With */}
@@ -144,6 +199,9 @@ const TravelForm = () => {
                         <span className="font-medium">Family</span>
                     </div>
                 </div>
+                {validations.travelWith && (
+                    <p className="text-red-500 text-sm">{validations.travelWith}</p>
+                )}
             </div>
 
             {/* Additional Notes */}
@@ -160,7 +218,6 @@ const TravelForm = () => {
                     className="w-full"
                     rows={4} // Set the number of visible rows
                 />
-
             </div>
 
             {/* Submit Button */}
