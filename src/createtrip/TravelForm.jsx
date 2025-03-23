@@ -245,7 +245,7 @@ const TravelForm = () => {
             {/* Budget Selection */}
             <div className="mb-6">
                 <Label htmlFor="length" className="block mb-2 text-lg font-semibold">
-                    Select Dates
+                    Select Budget
                 </Label>
 
                 {/* Budget Cards */}
