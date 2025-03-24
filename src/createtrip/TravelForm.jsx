@@ -249,46 +249,54 @@ const TravelForm = () => {
                 </Label>
 
                 {/* Budget Cards */}
-                {formData.customBudget === "" && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                        {["Low Budget", "Medium Budget", "High Budget"].map((option) => (
-                            <div
-                                key={option}
-                                onClick={() => handleBudgetOptionChange(option)}
-                                className={cn(
-                                    "p-4 border rounded-lg cursor-pointer flex flex-col items-center transition transform hover:scale-115",
-                                    formData.selectedBudgetOption === option
-                                        ? "bg-blue-200 border-blue-500 shadow-md"
-                                        : "bg-white-100 border-gray-300"
-                                )}
-                            >
-                                {option === "Low Budget" && <FaWallet className="text-2xl mb-2 text-blue-500" />}
-                                {option === "Medium Budget" && <FaDollarSign className="text-2xl mb-2 text-green-500" />}
-                                {option === "High Budget" && <FaMoneyBillWave className="text-2xl mb-2 text-purple-500" />}
-                                <span className="font-medium">{option}</span>
-                            </div>
-                        ))}
-                        {validations.selectedBudgetOption && <p className="text-red-500 text-sm">{validations.selectedBudgetOption}</p>}
-                    </div>
-                )}
+                <div
+                    className={cn(
+                        "grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 transition-opacity duration-300 ease-in-out",
+                        formData.customBudget === "" ? "opacity-100" : "opacity-0 pointer-events-none"
+                    )}
+                >
+                    {["Low Budget", "Medium Budget", "High Budget"].map((option) => (
+                        <div
+                            key={option}
+                            onClick={() => handleBudgetOptionChange(option)}
+                            className={cn(
+                                "p-4 border rounded-lg cursor-pointer flex flex-col items-center transition transform hover:scale-115",
+                                formData.selectedBudgetOption === option
+                                    ? "bg-blue-200 border-blue-500 shadow-md"
+                                    : "bg-white-100 border-gray-300"
+                            )}
+                        >
+                            {option === "Low Budget" && <FaWallet className="text-2xl mb-2 text-blue-500" />}
+                            {option === "Medium Budget" && <FaDollarSign className="text-2xl mb-2 text-green-500" />}
+                            {option === "High Budget" && <FaMoneyBillWave className="text-2xl mb-2 text-purple-500" />}
+                            <span className="font-medium">{option}</span>
+                        </div>
+                    ))}
+                    {validations.selectedBudgetOption && (
+                        <p className="text-red-500 text-sm">{validations.selectedBudgetOption}</p>
+                    )}
+                </div>
 
                 {/* Custom Budget Input */}
-                {formData.selectedBudgetOption === "" && (
-                    <div>
-                        <Label htmlFor="customBudget" className="block mb-2 font-medium">
-                            Or Enter Custom Budget
-                        </Label>
-                        <Input
-                            type="number"
-                            id="customBudget"
-                            name="customBudget"
-                            value={formData.customBudget}
-                            onChange={handleCustomBudgetChange}
-                            placeholder="Enter your specific budget"
-                            className="w-full"
-                        />
-                    </div>
-                )}
+                <div
+                    className={cn(
+                        "transition-opacity duration-300 ease-in-out",
+                        formData.selectedBudgetOption === "" ? "opacity-100" : "opacity-0 pointer-events-none"
+                    )}
+                >
+                    <Label htmlFor="customBudget" className="block mb-2 font-medium">
+                        Or Enter Custom Budget
+                    </Label>
+                    <Input
+                        type="number"
+                        id="customBudget"
+                        name="customBudget"
+                        value={formData.customBudget}
+                        onChange={handleCustomBudgetChange}
+                        placeholder="Enter your specific budget"
+                        className="w-full"
+                    />
+                </div>
 
                 {validations.customBudget && <p className="text-red-500 text-sm">{validations.customBudget}</p>}
             </div>
