@@ -22,13 +22,20 @@ export function DatePickerWithRange({
     className,
     onDateChange,
     startYear = getYear(new Date()),
-    endYear = getYear(new Date()) + 100
+    endYear = getYear(new Date()) + 100,
+    value
 }) {
 
     const [date, setDate] = React.useState({
         from: undefined,
         to: undefined,
     });
+
+    React.useEffect(() => {
+        if (value) {
+            setDate(value);
+        }
+    }), [value];
 
     const [currentMonth, setCurrentMonth] = React.useState(new Date()); // Track the current month for the calendar
 
