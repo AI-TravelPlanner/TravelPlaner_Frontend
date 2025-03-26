@@ -126,12 +126,19 @@ const TravelForm = () => {
             errors.customBudget = "Budget must be a positive number.";
         }
         if (!formData.selectedBudgetOption && !formData.customBudget) errors.selectedBudgetOption = "Please select a budget options"
-        if (!formData.travelWith) errors.travelWith = "Please select who you are traveling with.";
 
         return errors;
     };
 
     const validateStepThree = () => {
+        const errors = {};
+
+        if (!formData.travelWith) errors.travelWith = "Please select who you are traveling with.";
+
+        return errors;
+    };
+
+    const validateStepFour = () => {
         const errors = {};
 
         if (!formData.tripTheme) errors.tripTheme = "Please select a theme for your trip.";
@@ -143,7 +150,7 @@ const TravelForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const errors = validateStepThree();
+        const errors = validateStepFour();
 
         if (Object.keys(errors).length > 0) {
             setValidations(errors);
@@ -201,6 +208,8 @@ const TravelForm = () => {
             errors = validateStepOne();
         } else if (step === 2) {
             errors = validateStepTwo();
+        } else if (step === 3) {
+            errors = validateStepThree();
         }
 
         if (Object.keys(errors).length > 0) {
@@ -214,7 +223,7 @@ const TravelForm = () => {
 
     return (
         <form
-            onSubmit={step === 3 ? handleSubmit : (e) => e.preventDefault()}
+            onSubmit={step === 4 ? handleSubmit : (e) => e.preventDefault()}
             className={cn(
                 "max-w-2xl mx-auto p-8 shadow-xl rounded-2xl transition-transform duration-300 hover:scale-103",
                 theme === 'light' ? 'bg-white text-gray-800' : 'bg-gray-800 text-gray-100'
@@ -347,13 +356,15 @@ const TravelForm = () => {
 
                         {validations.customBudget && <p className="text-red-500 text-sm">{validations.customBudget}</p>}
                     </div>
+                </>)}
+                {step === 3 && (<>
 
                     {/* Who Do You Plan on Traveling With */}
                     <div className="mb-8">
                         <Label className="block mb-2 text-lg font-semibold">
                             Who Do You Plan on Traveling With?
                         </Label>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                             {["Solo", "Friends", "Family", "Couple", "Colleagues", "Group Tour"].map((option) => (
                                 <div
                                     key={option}
@@ -380,13 +391,13 @@ const TravelForm = () => {
                 </>)}
 
 
-                {step === 3 && (<>
+                {step === 4 && (<>
                     {/* Trip Theme */}
                     <div className="mb-8">
                         <Label className="block mb-2 text-lg font-semibold">
                             Select Your Trip Theme
                         </Label>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                             {[
                                 { label: "Honeymoon", icon: <FaHeart className="text-2xl mb-2 text-pink-500" /> },
                                 { label: "Family Trip", icon: <FaUsers className="text-2xl mb-2 text-purple-500" /> },
@@ -422,6 +433,7 @@ const TravelForm = () => {
                     </div>
 
                     {/* Additional Notes */}
+                    {/*  
                     <div className="mb-6">
                         <Label htmlFor="additionalNotes" className="block mb-2 text-lg font-semibold">
                             Additional Notes
@@ -436,7 +448,7 @@ const TravelForm = () => {
                             rows={4}
                         />
                     </div>
-
+                    */}
 
                 </>)}
 
@@ -449,12 +461,12 @@ const TravelForm = () => {
                         Back
                     </Button>
                 )}
-                {step < 3 && (
+                {step < 4 && (
                     <Button onClick={nextStep} type="button" className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg hover:scale-105 transition">
                         Next
                     </Button>
                 )}
-                {step === 3 && (
+                {step === 4 && (
                     <Button type="submit" className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg hover:scale-105 transition">
                         Create Trip
                     </Button>
