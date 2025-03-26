@@ -38,44 +38,6 @@ const HomePage = () => {
               Your journey ✈️ starts here.
             </p>
           </motion.div>
-
-          <motion.div
-            className="flex-1 flex justify-center relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          >
-            <img
-              src="../src/assets/hero-img/beach.jpeg"
-              alt="Beach Image"
-              loading="lazy"
-              className="h-[50vh] w-[50vh] object-cover rounded-3xl hidden md:block"
-            />
-            <img
-              src="../src/assets/hero-img/landmark.jpeg"
-              alt="Landmark Image"
-              loading="lazy"
-              className="absolute h-[30vh] w-[30vh] object-cover rounded-2xl bottom-[170px] left-[0px] hidden md:block rotate-[-5deg]"
-            />
-            <img
-              src="../src/assets/hero-img/plane.jpg"
-              alt="Plane travel Image"
-              loading="lazy"
-              className="absolute h-[30vh] w-[30vh] object-cover rounded-2xl bottom-[230px] right-[0px] hidden md:block rotate-[10deg]"
-            />
-            <img
-              src="../src/assets/hero-img/female-traveler.jpg"
-              alt="Traveler Image"
-              loading="lazy"
-              className="absolute h-[30vh] w-[30vh] object-cover rounded-2xl top-[170px] right-[0px] hidden md:block rotate-[-5deg]"
-            />
-            <img
-              src="../src/assets/hero-img/plane2.jpg"
-              alt="Travel Image"
-              loading="lazy"
-              className="absolute h-[30vh] w-[30vh] object-cover rounded-2xl top-[230px] left-[0px] hidden md:block rotate-[10deg]"
-            />
-          </motion.div>
         </div>
       </motion.div>
     </section>
