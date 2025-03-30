@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import StatCard from "@/home/StatCard";
 
 const Layout = ({ children }) => {
   return (
