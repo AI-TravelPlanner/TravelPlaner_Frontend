@@ -10,7 +10,8 @@ const StatCard = ({
 }) => {
     return (
         <div className={cn(
-            "flex flex-col items-center p-6 rounded-lg shadow-sm border bg-[#333333] transition-transform duration-300 hover:scale-105",
+            "flex flex-col items-center p-6 rounded-lg shadow-sm border border-gray-100",
+            "bg-[#D9D9D9] transition-transform duration-300 hover:scale-105",
             "dark:bg-gray-800 dark:border-gray-700",
             className
         )}>
