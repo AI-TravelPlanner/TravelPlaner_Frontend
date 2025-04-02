@@ -8,8 +8,11 @@ const SubHeader = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div ref={ref} className="overflow-hidden">
-      <section className="w-full flex flex-col md:flex-row items-center gap-10 p-6 md:p-16 bg-gradient-to-b from-slate-900 to-gray-200 lg:bg-gradient-to-r from-slate-900 to-gray-200 md:bg-gradient-to-r from-slate-900 to-gray-200 sm:bg-gradient-to-b from-slate-900 to-gray-200">
+    <div
+      ref={ref}
+      className="flex justify-center bg-linear-to-b from-red-200 via-pink-400 to-rose-600"
+    >
+      <section className="w-[80vw] flex flex-col md:flex-row justify-center items-center gap-10 p-6 m-5 md:p-16 bg-gray-200 rounded-4xl">
         {/* Image Section */}
         <motion.div
           className="w-full md:w-1/2 flex justify-center relative"
