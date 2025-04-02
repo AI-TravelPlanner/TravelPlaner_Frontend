@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { cn } from "@/lib/utils";
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import { motion } from 'framer-motion';
 
 const CustomerTestimonial = ({
@@ -9,6 +9,7 @@ const CustomerTestimonial = ({
     customerName,
     tripType,
     tripLocation,
+    rating,
     className,
 }) => {
 
@@ -65,6 +66,12 @@ const CustomerTestimonial = ({
                         <span className="font-medium text-gray-800 dark:text-white">
                             {customerName}
                         </span>
+                        {/* Star Rating */}
+                        <div className="flex text-yellow-500 px-5">
+                            {Array.from({ length: rating }, (_, i) => (
+                                <FaStar key={i} className="w-4 h-4" />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
