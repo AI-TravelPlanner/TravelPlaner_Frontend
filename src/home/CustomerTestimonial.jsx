@@ -23,16 +23,14 @@ const CustomerTestimonial = ({
     }
 
     return (
-
         <div
-            className={cn("w-80 h-64 perspective-1000 cursor-pointer", className)}
+            className={cn("w-[100%] h-64 perspective-1000 cursor-pointer", className)}
             onClick={handleFlip}
         >
             <motion.div
-                className="relative w-full h-full preserve-3d duration-100 hover:scale-105"
+                className="relative w-full h-full preserve-3d duration-300 hover:scale-105"
                 initial={false}
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6 }}
                 onAnimationComplete={() => setAnimating(false)}
                 style={{
                     transformStyle: "preserve-3d"
@@ -41,7 +39,7 @@ const CustomerTestimonial = ({
 
                 {/* Front Side */}
                 <div className={cn(
-                    " absolute w-80 p-6 bg-white rounded-lg shadow-sm border border-gray-100",
+                    "absolute w-[100%] p-6 bg-white rounded-lg shadow-sm border border-gray-500",
                     "dark:bg-gray-800 dark:border-gray-700 bg-[#D9D9D9]",
                     "flex flex-col h-full"
                 )}
@@ -71,8 +69,8 @@ const CustomerTestimonial = ({
                 </div>
 
                 {/* Backside */}
-                <div className="absolute w-full h-full backface-hidden bg-[#D9D9D9] 
-                dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 
+                <div className="absolute w-[100%] p-6 h-full backface-hidden bg-[#D9D9D9] 
+                dark:bg-gray-800 rounded-lg shadow-sm border border-gray-500 
                 dark:border-gray-700 p-6 flex flex-col items-center justify-center rotate-y-180
                 "
                     style={{
