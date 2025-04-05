@@ -9,23 +9,25 @@ function AnimatedButton() {
 
   return (
     <motion.div
-      initial={{ x: "-50%" }} // Initial position for centering
       animate={{
-        x: isClicked ? "50vw" : "-50%", // Animate to the right (50% of the viewport width) or back to the center
+        x: isClicked
+          ? "35vw" // Default for small screens (e.g., phone)
+          : "0%",
       }}
-      transition={{ type: "spring", stiffness: 100 }}
-      className="absolute top-1/2 -translate-y-1/2" // Position the div in the center vertically
+      transition={{ type: "spring", stiffness: 50 }}
+      className="md:x-[40vw] lg:x-[40vw]"
     >
       {isClicked ? (
         <motion.button
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 text-sm md:text-base lg:text-lg bg-blue-500 text-white rounded"
           onClick={() => setIsClicked(false)} // Resets when clicked again
         >
           I'm a Button!
         </motion.button>
       ) : (
-        <motion.div>
-          <TravelForm handleAnimate={setIsClicked} />
+        <motion.div onClick={() => setIsClicked(true)}>
+          <TravelForm />
+          {/* <TravelForm handleAnimate={setIsClicked} /> */}
         </motion.div>
       )}
     </motion.div>

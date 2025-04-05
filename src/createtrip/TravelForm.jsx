@@ -249,9 +249,9 @@ const TravelForm = ({ handleAnimate }) => {
             : "bg-gray-800 text-gray-100"
         )}
       >
-        <h2 className="text-3xl font-extrabold mb-8 text-center">
-          ✨ Plan Your Perfect Trip ✨
-        </h2>
+       <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold mb-8 text-center">
+  ✨ Plan Your Perfect Trip ✨
+</h2>
         <motion.div
           key={step}
           initial={{ opacity: 0, x: 50 }}
@@ -616,6 +616,7 @@ const TravelForm = ({ handleAnimate }) => {
             </Button>
           )}
         </div>
+        
       </form>
     </div>
   );
