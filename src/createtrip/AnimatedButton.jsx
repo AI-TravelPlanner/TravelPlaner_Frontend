@@ -38,7 +38,7 @@ function AnimatedButton() {
               className="h-[400px] w-full bg-white rounded-2xl shadow-md flex items-center justify-center"
             >
               <div className="text-gray-400 text-lg">
-                Form is currently closed.
+                trip information will be displayed here
               </div>
             </motion.div>
           </>
