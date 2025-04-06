@@ -3,6 +3,7 @@ import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import TravelForm from "./TravelForm";
+import InfoDisplayCard from "./tripComponents/InfoDisplayCard";
 
 function AnimatedButton({ setIsFormOpen }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -42,11 +43,9 @@ function AnimatedButton({ setIsFormOpen }) {
                 damping: 20, // Adds a smooth effect for the animation
               }}
               exit={{ opacity: 0 }}
-              className="h-[400px] w-full bg-white rounded-2xl shadow-md "
+              className="h-[100px]"
             >
-              <div className="text-gray-400 text-lg">
-                trip information will be displayed here
-              </div>
+              <InfoDisplayCard />
             </motion.div>
           </>
         ) : (

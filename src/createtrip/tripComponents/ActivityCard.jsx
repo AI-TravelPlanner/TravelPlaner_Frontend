@@ -1,10 +1,11 @@
 import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const ActivityCard = () => {
   return (
-    <div className="grid grid-cols-12 gap-4 border rounded-lg ">
+    <div className="grid grid-cols-12 gap-1 rounded-lg w-full h-full min-w-0 min-h-0 ">
       {/* Image Section */}
-      <div className=" col-span-4 w-full h-full border-2 border-blue-300 rounded-lg overflow-hidden shadow-lg">
+      <div className="col-span-3 w-auto h-auto border-2 border-blue-300 rounded-lg overflow-hidden shadow-lg  flex-shrink-0">
         <img
           src="https://via.placeholder.com/150"
           alt="Activity"
@@ -13,12 +14,11 @@ const ActivityCard = () => {
       </div>
 
       {/* Info Section */}
-      <div className="col-span-8 p-4 rounded-lg shadow-lg">
-        <h3 className="text-sm font-semibold">Activity Name</h3>
-        <p className="text-gray-600 text-xs mt-1">
-          Description of the activity goes here.
-        </p>
-        <p className="text-sm font-bold mt-2">Price: $99.99</p>
+      <div className="col-span-9 p-4 rounded-lg shadow-lg flex-shrink flex flex-col min-w-0 min-h-0">
+        <div className="flex justify-between w-full">
+          <p className="text-xs font-bold">Activity Name</p>
+          <p className="text-xs font-bold">Price: $99.99</p>
+        </div>
       </div>
     </div>
   );

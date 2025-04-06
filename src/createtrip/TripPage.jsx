@@ -14,7 +14,7 @@ const TripPage = () => {
         isFormOpen ? "" : "justify-center"
       }`}
     >
-      <div className="w-full max-w-md p-4 border-3 border-pink-400 ">
+      <div className="w-full p-4 border-3 border-pink-400 ">
         <AnimatedButton setIsFormOpen={setIsFormOpen} />
       </div>
     </div>
