@@ -4,27 +4,29 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TravelForm from "./TravelForm";
 
-function AnimatedButton() {
+function AnimatedButton({ setIsFormOpen }) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
     <motion.div>
       <AnimatePresence mode="wait">
+        {setIsFormOpen(isClicked)}
         {isClicked ? (
           <>
             <motion.button
               key="button"
-              initial={{ opacity: 0, y: -10, x: 10 }}
               exit={{ opacity: 0 }}
-              className="px-4 py-2 text-sm md:text-base lg:text-lg bg-blue-500 text-white rounded"
+              className="px-4 py-2 text-sm md:text-base lg:text-lg bg-blue-500 text-white rounded absolute right-2"
               animate={{
                 opacity: 1,
                 y: 0,
-                x: isClicked
-                  ? "35vw" // Default for small screens (e.g., phone)
-                  : "0%",
               }}
-              transition={{ type: "spring", stiffness: 50 }}
+              initial={{ opacity: 0, x: 0 }} // Starts from off-screen to the right
+              transition={{
+                type: "spring",
+                stiffness: 40,
+                damping: 20, // Adds a smooth effect for the animation
+              }}
               onClick={() => setIsClicked(false)} // Resets when clicked again
             >
               I'm a Button!
@@ -34,8 +36,13 @@ function AnimatedButton() {
               key="placeholder"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 40,
+                damping: 20, // Adds a smooth effect for the animation
+              }}
               exit={{ opacity: 0 }}
-              className="h-[400px] w-full bg-white rounded-2xl shadow-md flex items-center justify-center"
+              className="h-[400px] w-full bg-white rounded-2xl shadow-md "
             >
               <div className="text-gray-400 text-lg">
                 trip information will be displayed here
@@ -44,10 +51,7 @@ function AnimatedButton() {
           </>
         ) : (
           <motion.div onClick={() => setIsClicked(true)}>
-            {/* <TravelForm /> */}
-            <div className="grid justify-center  min-h-screen border-3 border-blue-600">
-              <TravelForm handleAnimate={setIsClicked} />
-            </div>
+            <TravelForm handleAnimate={setIsClicked} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:8080/api/create-trip";
+                          const BASE_URL = "http://localhost:8080/api/v1/gemini/plan-trip"; 
 
 // Set the base URL for your API
 const axiosInstance = axios.create({
