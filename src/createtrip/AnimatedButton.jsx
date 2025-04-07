@@ -3,6 +3,8 @@ import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import TravelForm from "./TravelForm";
+import HotelCard from "./tripComponents/HotelCard";
+import WeatherCard from "./tripComponents/WeatherCard";
 
 function AnimatedButton() {
   const [isClicked, setIsClicked] = useState(false);
@@ -38,7 +40,28 @@ function AnimatedButton() {
               className="h-[400px] w-full bg-white rounded-2xl shadow-md flex items-center justify-center"
             >
               <div className="text-gray-400 text-lg">
-                trip information will be displayed here
+                {/* trip information will be displayed here */}
+                {/* TESTING */}
+                <HotelCard
+                  hotelName="Sheraton"
+                  hotelAddress="Hotel Address"
+                  hotelRating="Hotel Rating"
+                  hotelPrice="$100"
+                  hotelImage="/src/assets/hotel-img/Sheraton.jpg"
+                  hotelCheckInDate={new Date().toLocaleDateString()}
+                  hotelCheckOutDate={new Date().toLocaleDateString()}
+                  hotelRoomType="Deluxe Room"
+                  hotelAmenities="Free Wi-Fi, Pool, Gym"
+                  hotelBookingLink="www.example.com"
+                  hotelContactNumber="123-456-7890"
+                  hotelDescription="Hotel Description"
+                  hotelNearbyAttractions="Nearby Attractions"
+                />
+                <WeatherCard
+                  temperature={25}
+                  weatherDescription="Rainy"
+                />
+                {/* END TESTING */}
               </div>
             </motion.div>
           </>
