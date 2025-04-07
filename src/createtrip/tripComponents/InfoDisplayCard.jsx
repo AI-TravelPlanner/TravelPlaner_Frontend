@@ -1,11 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import DayCard from "./DayCard";
 const InfoDisplayCard = () => {
-    return (
-        // This component will be used to display the information of the trip
-        <div>InfoDisplayCard</div>
-    )
-}
+  return (
+    <div>
+      <DayCard />
+      <DayCard />
+      <DayCard />
+    </div>
+  );
+};
 
-// This component will be used to display the information of the trip
-export default InfoDisplayCard
+export default InfoDisplayCard;
