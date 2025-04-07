@@ -48,17 +48,40 @@ function AnimatedButton({ setIsFormOpen }) {
               className="h-[100px]"
             >
               <div className="text-gray-400 text-lg">
-                trip information will be displayed here
+                {/* trip information will be displayed here */}
+                {/* TESTING */}
+                <HotelCard
+                  hotelName="Sheraton"
+                  hotelAddress="Hotel Address"
+                  hotelRating="Hotel Rating"
+                  hotelPrice="$100"
+                  hotelImage="/src/assets/hotel-img/Sheraton.jpg"
+                  hotelCheckInDate={new Date().toLocaleDateString()}
+                  hotelCheckOutDate={new Date().toLocaleDateString()}
+                  hotelRoomType="Deluxe Room"
+                  hotelAmenities="Free Wi-Fi, Pool, Gym"
+                  hotelBookingLink="www.example.com"
+                  hotelContactNumber="123-456-7890"
+                  hotelDescription="Hotel Description"
+                  hotelNearbyAttractions="Nearby Attractions"
+                />
+                <WeatherCard
+                  temperature={25}
+                  weatherDescription="Rainy"
+                />
+                {/* END TESTING */}
               </div>
-            </motion.div>
+              <InfoDisplayCard />
+            </motion.div >
           </>
         ) : (
           <motion.div onClick={() => setIsClicked(true)}>
             <TravelForm handleAnimate={setIsClicked} />
           </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        )
+        }
+      </AnimatePresence >
+    </motion.div >
   );
 }
 
