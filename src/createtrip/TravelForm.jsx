@@ -35,8 +35,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useTheme } from "../_contextapi/ThemeContext";
+import { planTrip } from "@/service/createtrip/api";
 
-const TravelForm = ({ handleAnimate }) => {
+const TravelForm = ({ handleAnimate, setPlanTripFromGeminiJson }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     tripName: "",
@@ -176,9 +177,31 @@ const TravelForm = ({ handleAnimate }) => {
       return;
     }
 
-    handleAnimate(true); // Set the clicked state to true
-
     setValidations({});
+
+    const prompt = {
+      prompt: `Plan a trip to ${formData.location} from ${
+        formData.dateRange.from
+      } to ${formData.dateRange.to}. We are ${
+        formData.travelWith
+      }. The budget is ${
+        formData.selectedBudgetOption || formData.customBudget
+      }. The theme of the trip is ${
+        formData.tripTheme
+      }. Each day should include at least 3 activities.`,
+    };
+
+    planTrip("/plan-trip", prompt)
+      .then((response) => {
+        setPlanTripFromGeminiJson(response); // Set the response data to the parent component
+        handleAnimate(true);
+
+        console.log("Response from server:", response);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
+
     console.log("Form Data Submitted:", formData);
   };
 
@@ -249,9 +272,9 @@ const TravelForm = ({ handleAnimate }) => {
             : "bg-gray-800 text-gray-100"
         )}
       >
-       <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold mb-8 text-center">
-  ✨ Plan Your Perfect Trip ✨
-</h2>
+        <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold mb-8 text-center">
+          ✨ Plan Your Perfect Trip ✨
+        </h2>
         <motion.div
           key={step}
           initial={{ opacity: 0, x: 50 }}
@@ -616,7 +639,6 @@ const TravelForm = ({ handleAnimate }) => {
             </Button>
           )}
         </div>
-        
       </form>
     </div>
   );

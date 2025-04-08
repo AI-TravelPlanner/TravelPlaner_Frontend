@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import TravelForm from "./TravelForm";
 import InfoDisplayCard from "./tripComponents/InfoDisplayCard";
 
-function AnimatedButton({ setIsFormOpen }) {
+function AnimatedButton({
+  setIsFormOpen,
+  setPlanTripFromGeminiJson,
+  planTripFromGeminiJson,
+}) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -43,14 +47,20 @@ function AnimatedButton({ setIsFormOpen }) {
                 damping: 20, // Adds a smooth effect for the animation
               }}
               exit={{ opacity: 0 }}
-              className="h-[100px]"
             >
-              <InfoDisplayCard />
+              <InfoDisplayCard
+                planTripFromGeminiJson={planTripFromGeminiJson}
+              />
             </motion.div>
           </>
         ) : (
-          <motion.div onClick={() => setIsClicked(true)}>
-            <TravelForm handleAnimate={setIsClicked} />
+          <motion.div
+          // onClick={() => setIsClicked(true)}
+          >
+            <TravelForm
+              setPlanTripFromGeminiJson={setPlanTripFromGeminiJson}
+              handleAnimate={setIsClicked}
+            />
           </motion.div>
         )}
       </AnimatePresence>
