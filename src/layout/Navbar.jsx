@@ -17,7 +17,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="p-4 md:p-6">
+        <nav className="bg-[#060B12] p-4 md:p-6">
             <div className="flex items-center w-full">
                 {/* Logo and Branding with Home Page Link */}
                 <div className="flex items-center space-x-2 md:space-x-4">
@@ -45,6 +45,12 @@ const Navbar = () => {
                     </Link>
                     <Link to="/create-trip" className="text-white font-bold hover:text-gray-300 transition">
                         Destinations
+                    </Link>
+                    <Link to="/about" className="text-white font-bold hover:text-gray-300 transition">
+                        About Us
+                    </Link>
+                    <Link to="/contact" className="text-white font-bold hover:text-gray-300 transition">
+                        Contact Us
                     </Link>
                 </div>
 
@@ -85,7 +91,7 @@ const Navbar = () => {
 
             {/* Mobile Menu - Only visible when hamburger is clicked */}
             {isMenuOpen && (
-                <div className="md:hidden mt-4 py-2 border-t border-gray-700">
+                <div className="md:hidden mt-4 py-2 border-t border-[#060B12]">
                     <div className="flex flex-col space-y-4">
                         <Link 
                             to="/" 
@@ -100,6 +106,20 @@ const Navbar = () => {
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Destinations
+                        </Link>
+                        <Link 
+                            to="/about" 
+                            className="text-white font-bold hover:text-gray-300 transition text-sm py-2"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            About Us
+                        </Link>
+                        <Link 
+                            to="/contact" 
+                            className="text-white font-bold hover:text-gray-300 transition text-sm py-2"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Contact Us
                         </Link>
                         
                         {/* Mobile Avatar and Profile */}
