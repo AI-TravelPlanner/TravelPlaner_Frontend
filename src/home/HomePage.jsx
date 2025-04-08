@@ -12,10 +12,10 @@ const HomePage = () => {
     <div>
       {/* Image Carousel component */}
       <ImageCarousel />
-      <FlightGrid />
-      <CustomerGrid />
       <StatsGrid />
       <SubHeader />
+      <FlightGrid />
+      <CustomerGrid />
     </div>
   );
 };
