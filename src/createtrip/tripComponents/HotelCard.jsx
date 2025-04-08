@@ -32,53 +32,37 @@ const HotelCard = ({
     }
 
     return (
-        <div className={cn("cursor-pointer")} onClick={handleFlip}>
-
+        <div className={cn("cursor-pointer w-full h-full min-h-0 min-w-0 dark:border-gray-700 bg-white dark:bg-gray-800")} onClick={handleFlip}>
             <motion.div
                 className="relative preserve-3d duration-300 hover:scale-105"
                 initial={false}
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
                 onAnimationComplete={() => setIsAnimating(false)}
                 style={{
-                    transformStyle: "preserve-3d"
-                }}
-            >
-                {/* Frontside */}
+                    transformStyle: "preserve-3d",
+                }}>
                 <div
-                    className={cn(
-                        "absoulte inset-0 p-2 rounded-lg shadow-xl border border-gray-300",
-                        "dark:bg-gray-800 dark:border-gray-700 bg-[#D9D9D9] h-full",
-                    )}
+                    className="absolute inset-0 w-full h-full rounded-lg shadow-xl border px-3 grid grid-row-3"
                     style={{
-                        backfaceVisibility: "hidden"
+                        backfaceVisibility: "hidden",
                     }}
                 >
-                    <div className="flex flex-col justify-between items-center h-full">
-                        <img src={hotelImage} alt={hotelName} className="w-full h-32 object-cover rounded-lg" />
-                        <h2 className="text-xl font-bold">{hotelName}</h2>
-                        <p className="text-gray-600">{hotelPrice}/Night</p>
-                    </div>
+                    <img src={hotelImage} alt={hotelName} className="w-full h-15 object-cover rounded-lg" />
+                    <h2 className="font-bold">{hotelName}</h2>
+                    <p className="text-sm text-gray-600">{hotelPrice}/Night</p>
                 </div>
-
-                {/* Backside */}
                 <div
-                    className="absolute inset-0 p-2 bg-[#D9D9D9] 
-                    dark:bg-gray-800 rounded-lg shadow-sm border border-gray-500 
-                    dark:border-gray-700 p-6 flex flex-col items-center justify-center min-h-full"
+                    className='absolute inset-0 w-full h-full rounded-lg shadow-xl border grid grid-row-3'
                     style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)", // Start flipped
-                        height: "auto",
-                        minHeight: "100%",
                     }}
                 >
-                    <h2 className="text-xl font-bold">{hotelRoomType}</h2>
+                    <h2 className="font-bold">{hotelRoomType}</h2>
                     <p className="text-gray-600">{hotelAmenities}</p>
                     <p className="text-gray-600">{hotelContactNumber}</p>
-                    <Button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Book Now</Button>
                 </div>
             </motion.div>
-
         </div>
     )
 }

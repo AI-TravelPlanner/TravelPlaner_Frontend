@@ -35,9 +35,9 @@ const WeatherCard = ({ temperature, weatherDescription }) => {
     const weatherIcon = weatherIconsMap[weatherKey];
 
     return (
-        <div className="p-4 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700 bg-[#D9D9D9] dark:bg-gray-800 flex flex-col items-center justify-center w-64">
-            {weatherIcon}
-            <h2 className="text-2xl font-bold">{temperature}°C</h2>
+        <div className="w-full h-full min-h-0 min-w-0 grid grid-cols-2 gap-2 px-2 dark:border-gray-700 bg-white dark:bg-gray-800 text-center">
+            {/* {weatherIcon} */}
+            <h2 className="font-bold">{temperature}°C</h2>
             <p className="text-gray-600 dark:text-gray-400">{weatherDescription}</p>
         </div>
     );
