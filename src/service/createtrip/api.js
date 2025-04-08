@@ -21,15 +21,5 @@ export const planTrip = async (endpoint, data) => {
     }
 };
 
-// Define a GET method
-// export const getData = async (endpoint) => {
-//     try {
-//         const response = await axiosInstance.get(endpoint);
-//         return response.data;
-//     } catch (error) {
-//         console.error("Error in GET request:", error);
-//         throw error;
-//     }
-// };
 
 export default axiosInstance;

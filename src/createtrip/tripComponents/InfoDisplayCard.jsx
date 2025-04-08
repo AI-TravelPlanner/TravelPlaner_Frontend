@@ -5,7 +5,7 @@ import "./customscroll.css"; // Import the custom scrollbar CSS
 const InfoDisplayCard = ({ planTripFromGeminiJson }) => {
   // const { duration, dailyItinery } = planTripFromGeminiJson;
   const {
-    jsonNode: { dailyItinery },
+    jsonNode: { dailyItinery, weather, hotelDetails },
   } = planTripFromGeminiJson;
 
   function chunkArray(arr, size) {
@@ -23,7 +23,12 @@ const InfoDisplayCard = ({ planTripFromGeminiJson }) => {
       {dayChunks.map((chunk, colIndex) => (
         <div key={colIndex} className="flex flex-col gap-4">
           {chunk.map((itinerary, index) => (
-            <DayCard key={colIndex * 3 + index} itinerary={itinerary} />
+            <DayCard
+              key={colIndex * 3 + index}
+              hotelDetails={hotelDetails}
+              weatherDetails={weather}
+              itinerary={itinerary}
+            />
           ))}
         </div>
       ))}
