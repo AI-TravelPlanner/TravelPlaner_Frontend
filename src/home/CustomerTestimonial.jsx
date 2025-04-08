@@ -40,7 +40,7 @@ const CustomerTestimonial = ({
 
                 {/* Front Side */}
                 <div className={cn(
-                    "absolute w-[100%] p-6 bg-white rounded-lg shadow-sm border border-gray-500",
+                    "absolute w-[100%] p-3 bg-white rounded-lg shadow-sm border border-gray-500",
                     "dark:bg-gray-800 dark:border-gray-700 bg-[#D9D9D9]",
                     "flex flex-col h-full"
                 )}
@@ -52,22 +52,24 @@ const CustomerTestimonial = ({
                     <FaQuoteLeft className="w-8 h-8 text-black dark:text-blue-400" />
 
                     {/* Testimonial text */}
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4">
+                    <p className="p-4 text-sm 2xl:text-[16px] text-gray-600 dark:text-gray-300 line-clamp-4">
                         {testimonial}
                     </p>
 
                     {/* Customer info */}
-                    <div className="mt-auto flex items-center">
+                    <div className="mt-auto grid grid-cols-3 items-center gap-2">
+                        {/* Image */}
                         <img
                             src={customerImage}
                             alt={customerName}
-                            className="w-10 h-10 rounded-full object-cover mr-3"
+                            className="w-10 h-10 rounded-full object-cover"
                         />
+                        {/* Name */}
                         <span className="font-medium text-gray-800 dark:text-white">
                             {customerName}
                         </span>
                         {/* Star Rating */}
-                        <div className="flex text-yellow-500 px-5">
+                        <div className="flex text-yellow-500">
                             {Array.from({ length: rating }, (_, i) => (
                                 <FaStar key={i} className="w-4 h-4" />
                             ))}
