@@ -6,6 +6,7 @@ import StatsGrid from "./StatsGrid";
 import StatCard from "./StatCard";
 import { FaGlobe, FaPlane, FaUsers } from "react-icons/fa";
 import SubHeader from "./SubHeader";
+import TravelWebsite from "./Top-Rated";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
       <SubHeader />
       <FlightGrid />
       <CustomerGrid />
+      <TravelWebsite/>
     </div>
   );
 };
