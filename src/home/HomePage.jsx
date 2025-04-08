@@ -15,9 +15,10 @@ const HomePage = () => {
       <ImageCarousel />
       <StatsGrid />
       <SubHeader />
+      <TravelWebsite/>
       <FlightGrid />
       <CustomerGrid />
-      <TravelWebsite/>
+      
     </div>
   );
 };
