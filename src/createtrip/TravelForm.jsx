@@ -188,7 +188,7 @@ const TravelForm = ({ handleAnimate, setPlanTripFromGeminiJson }) => {
         formData.selectedBudgetOption || formData.customBudget
       }. The theme of the trip is ${
         formData.tripTheme
-      }. Each day should include at least 3 activities and keep activity name max two words.`,
+      }. Each day should include at least 3 activities and keep activity name max two words and give me actual hotel name.`,
     };
 
     planTrip("/plan-trip", prompt)

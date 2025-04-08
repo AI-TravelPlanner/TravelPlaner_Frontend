@@ -12,6 +12,7 @@ const ActivityCard = ({ activity }) => {
 
   useEffect(() => {
     activity && GetPlacePhoto();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activity]);
 
   const GetPlacePhoto = async () => {
@@ -39,7 +40,7 @@ const ActivityCard = ({ activity }) => {
         {/* Image Section */}
         <div className="col-span-3 rounded-lg overflow-hidden flex-shrink-0 hover:scale-150 transition-all ">
           <img
-            src={photoUrl ? photoUrl : "/tripPic.jpg"}
+            src={photoUrl ? photoUrl : "/Sheraton.jpg"}
             alt="Activity"
             className="w-[60px] h-[55px] rounded-xl object-cover"
           />
