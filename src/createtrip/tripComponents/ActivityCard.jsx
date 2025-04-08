@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
-const ActivityCard = () => {
+const ActivityCard = ({ activity }) => {
   return (
     <div className="grid grid-cols-12 gap-1 rounded-lg w-full h-full min-w-0 min-h-0 ">
       {/* Image Section */}

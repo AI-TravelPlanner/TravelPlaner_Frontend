@@ -1,0 +1,12 @@
+/* index.css or App.css */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+    /* Hide the scrollbar */
+}
+
+.scrollbar-none {
+    -ms-overflow-style: none;
+    /* For Internet Explorer */
+    scrollbar-width: none;
+    /* For Firefox */
+}

@@ -7,7 +7,11 @@ import HotelCard from "./tripComponents/HotelCard";
 import WeatherCard from "./tripComponents/WeatherCard";
 import InfoDisplayCard from "./tripComponents/InfoDisplayCard";
 
-function AnimatedButton({ setIsFormOpen }) {
+function AnimatedButton({
+  setIsFormOpen,
+  setPlanTripFromGeminiJson,
+  planTripFromGeminiJson,
+}) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -45,18 +49,50 @@ function AnimatedButton({ setIsFormOpen }) {
                 damping: 20, // Adds a smooth effect for the animation
               }}
               exit={{ opacity: 0 }}
-              className="h-[100px]"
             >
-              <InfoDisplayCard />
-            </motion.div >
-          </>
-        ) : (
-          <motion.div onClick={() => setIsClicked(true)}>
-            <TravelForm handleAnimate={setIsClicked} />
-          </motion.div>
-        )
+              <InfoDisplayCard
+                planTripFromGeminiJson={planTripFromGeminiJson}
+              />
+            </motion.div>
+            <div className="text-gray-400 text-lg">
+              {/* trip information will be displayed here */}
+              {/* TESTING */}
+              <HotelCard
+                hotelName="Sheraton"
+                hotelAddress="Hotel Address"
+                hotelRating="Hotel Rating"
+                hotelPrice="$100"
+                hotelImage="/src/assets/hotel-img/Sheraton.jpg"
+                hotelCheckInDate={new Date().toLocaleDateString()}
+                hotelCheckOutDate={new Date().toLocaleDateString()}
+                hotelRoomType="Deluxe Room"
+                hotelAmenities="Free Wi-Fi, Pool, Gym"
+                hotelBookingLink="www.example.com"
+                hotelContactNumber="123-456-7890"
+                hotelDescription="Hotel Description"
+                hotelNearbyAttractions="Nearby Attractions"
+              />
+              <WeatherCard
+                temperature={25}
+                weatherDescription="Rainy"
+              />
+              {/* END TESTING */}
+            </div>
+            <InfoDisplayCard />
+          </motion.div >
+      </>
+      ) : (
+      <motion.div
+      // onClick={() => setIsClicked(true)}
+      >
+        <TravelForm
+          setPlanTripFromGeminiJson={setPlanTripFromGeminiJson}
+          handleAnimate={setIsClicked}
+        />
+      </motion.div>
+      )
         }
-      </AnimatePresence >
+    </AnimatePresence >
     </motion.div >
   );
 }
