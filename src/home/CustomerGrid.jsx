@@ -41,41 +41,41 @@ const testimonials = [
         tripLocation: "Barcelona, Spain",
         rating: 5
     },
-    {
-        testimonial: "I had an unforgettable hiking experience in Switzerland. The travel planner ensured all permits and accommodations were taken care of!",
-        customerName: "Jessica Patel",
-        tripType: "Adventure Trip",
-        tripLocation: "Swiss Alps, Switzerland",
-        rating: 5
-    },
-    {
-        testimonial: "A flawless business trip! The accommodations were top-notch, and the itinerary was perfectly tailored to my meetings and free time.",
-        customerName: "Robert Chang",
-        tripType: "Business Trip",
-        tripLocation: "New York, USA",
-        rating: 5
-    },
-    {
-        testimonial: "Traveling with kids can be stressful, but this service made it effortless! Every detail was well thought out, and we had a fantastic time.",
-        customerName: "Sarah Wilson",
-        tripType: "Family Getaway",
-        tripLocation: "Orlando, USA",
-        rating: 5
-    },
-    {
-        testimonial: "From booking to the final day of my trip, everything was seamless. I felt completely at ease knowing my itinerary was expertly handled.",
-        customerName: "Olivia Martinez",
-        tripType: "Luxury Escape",
-        tripLocation: "Santorini, Greece",
-        rating: 5
-    },
-    {
-        testimonial: "Backpacking through South America was a dream come true! The suggested routes and accommodations were perfect for an unforgettable experience.",
-        customerName: "Daniel Foster",
-        tripType: "Backpacking Trip",
-        tripLocation: "Machu Picchu, Peru",
-        rating: 5
-    }
+    // {
+    //     testimonial: "I had an unforgettable hiking experience in Switzerland. The travel planner ensured all permits and accommodations were taken care of!",
+    //     customerName: "Jessica Patel",
+    //     tripType: "Adventure Trip",
+    //     tripLocation: "Swiss Alps, Switzerland",
+    //     rating: 5
+    // },
+    // {
+    //     testimonial: "A flawless business trip! The accommodations were top-notch, and the itinerary was perfectly tailored to my meetings and free time.",
+    //     customerName: "Robert Chang",
+    //     tripType: "Business Trip",
+    //     tripLocation: "New York, USA",
+    //     rating: 5
+    // },
+    // {
+    //     testimonial: "Traveling with kids can be stressful, but this service made it effortless! Every detail was well thought out, and we had a fantastic time.",
+    //     customerName: "Sarah Wilson",
+    //     tripType: "Family Getaway",
+    //     tripLocation: "Orlando, USA",
+    //     rating: 5
+    // },
+    // {
+    //     testimonial: "From booking to the final day of my trip, everything was seamless. I felt completely at ease knowing my itinerary was expertly handled.",
+    //     customerName: "Olivia Martinez",
+    //     tripType: "Luxury Escape",
+    //     tripLocation: "Santorini, Greece",
+    //     rating: 5
+    // },
+    // {
+    //     testimonial: "Backpacking through South America was a dream come true! The suggested routes and accommodations were perfect for an unforgettable experience.",
+    //     customerName: "Daniel Foster",
+    //     tripType: "Backpacking Trip",
+    //     tripLocation: "Machu Picchu, Peru",
+    //     rating: 5
+    // }
 ];
 
 const CustomerGrid = () => {
@@ -144,7 +144,7 @@ const CustomerGrid = () => {
 
             {/* Grid layout for monitors */}
             <div className={cn(
-                "hidden lg:grid grid-cols-5 grid-rows-2 gap-4 justify-items-center",
+                "hidden lg:grid grid-cols-5 grid-rows-1 gap-2 justify-items-center",
                 "p-4"
             )}>
                 {testimonials.map((t, index) => (
