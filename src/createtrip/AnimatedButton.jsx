@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import { Globe } from "lucide-react"; // Globe icon for travel
 import TravelForm from "./TravelForm";
 import InfoDisplayCard from "./tripComponents/InfoDisplayCard";
 
@@ -20,7 +21,8 @@ function AnimatedButton({
           <motion.button
             key="button"
             exit={{ opacity: 0 }}
-            className="px-4 py-2 text-sm md:text-base lg:text-lg bg-blue-500 text-white rounded absolute right-2"
+            className="p-3 rounded-full bg-pink-600 text-white hover:bg-pink-700 focus:outline-none absolute right-2 "
+            aria-label="Global Travel"
             animate={{
               opacity: 1,
               y: 0,
@@ -33,7 +35,7 @@ function AnimatedButton({
             }}
             onClick={() => setIsClicked(false)} // Resets when clicked again
           >
-            I'm a Button!
+            <Globe size={24} />
           </motion.button>
 
           <motion.div

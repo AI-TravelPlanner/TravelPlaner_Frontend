@@ -16,15 +16,19 @@ const InfoDisplayCard = ({ planTripFromGeminiJson }) => {
     return chunks;
   }
 
-  const dayChunks = chunkArray(dailyItinery, 3);
+  const dayChunks = chunkArray(dailyItinery, 5);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 max-h-screen overflow-y-auto scrollbar-none ">
+    <div className="flex flex-col sm:flex-row gap-4 max-h-screen mb-5 overflow-y-auto scrollbar-none">
       {dayChunks.map((chunk, colIndex) => (
-        <div key={colIndex} className="flex flex-col gap-4 shadow-md rounded-lg bg-gray-100 dark:bg-gray-800">
+        <div
+          key={colIndex}
+          className="flex flex-col gap-5 shadow-md rounded-lg bg-gray-200 dark:bg-gray-800 p-2 overflow-y-auto scrollbar-none"
+        >
           {chunk.map((itinerary, index) => (
             <DayCard
-              key={colIndex * 3 + index}
+              key={colIndex * 5 + index}
+              days={itinerary.day}
               hotelDetails={hotelDetails}
               weatherDetails={weather}
               itinerary={itinerary}

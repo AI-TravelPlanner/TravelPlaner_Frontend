@@ -33,7 +33,7 @@ const WeatherCard = ({ weatherDetails }) => {
   return (
     <div className="w-full h-full min-h-0 min-w-0 grid grid-cols-2 gap-1 px-1 dark:bg-whitebg-gray-800 text-center">
       <h3 className="font-bold text-xs">{temperature}°C</h3>
-      <h4 className="text-[8px] text-gray-600 dark:text-gray-400">
+      <h4 className="text-[10px] text-gray-600 dark:text-gray-400">
         {condition}
       </h4>
     </div>

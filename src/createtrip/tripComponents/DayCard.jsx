@@ -3,10 +3,15 @@ import ActivityCard from "./ActivityCard";
 import HotelCard from "./HotelCard";
 import WeatherCard from "./WeatherCard";
 
-const DayCard = ({ itinerary, weatherDetails, hotelDetails }) => {
+const DayCard = ({ itinerary, weatherDetails, hotelDetails, days }) => {
   return (
-    <div className="w-100 h-50 rounded-lg shadow-xl  p-3">
+    <div className="w-full lg:w-100 h-50 rounded-lg bg-blue-100 shadow-md p-2">
       <div className="grid grid-cols-12 w-full gap-1 rounded-lg min-w-0 min-h-0">
+        {/* Day */}
+        <div className="col-span-12 text-xs text-center">
+          <p>{"Day " + days}</p>
+        </div>
+
         {/* Hotel Info/ */}
         <div className="col-span-4 p-1">
           <div className="grid grid-rows-[80%_20%] gap-2 h-full">
