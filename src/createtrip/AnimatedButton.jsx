@@ -19,7 +19,7 @@ function AnimatedButton({
       <AnimatePresence mode="wait">
         {setIsFormOpen(isClicked)}
         {isClicked ? (
-          <>
+          <motion.div>
             <motion.button
               key="button"
               exit={{ opacity: 0 }}
@@ -80,19 +80,19 @@ function AnimatedButton({
             </div>
             <InfoDisplayCard />
           </motion.div >
-      </>
-      ) : (
-      <motion.div
-      // onClick={() => setIsClicked(true)}
-      >
-        <TravelForm
-          setPlanTripFromGeminiJson={setPlanTripFromGeminiJson}
-          handleAnimate={setIsClicked}
-        />
-      </motion.div>
-      )
+
+        ) : (
+          <motion.div
+          // onClick={() => setIsClicked(true)}
+          >
+            <TravelForm
+              setPlanTripFromGeminiJson={setPlanTripFromGeminiJson}
+              handleAnimate={setIsClicked}
+            />
+          </motion.div>
+        )
         }
-    </AnimatePresence >
+      </AnimatePresence >
     </motion.div >
   );
 }
