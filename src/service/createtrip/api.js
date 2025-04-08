@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:8080/api/create-trip";
+const BASE_URL = "http://localhost:8080/api/v1/gemini";
 
 // Set the base URL for your API
 const axiosInstance = axios.create({
@@ -9,5 +9,17 @@ const axiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+// Define a POST method
+export const planTrip = async (endpoint, data) => {
+    try {
+        const response = await axiosInstance.post(endpoint, data);
+        return response.data;
+    } catch (error) {
+        console.error("Error in POST request:", error);
+        throw error;
+    }
+};
+
 
 export default axiosInstance;
