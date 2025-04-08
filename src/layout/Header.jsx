@@ -6,7 +6,7 @@ const Header = () => {
   // const navButtons = ["Plan a Trip", "Destinations"];
 
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className=" text-white p-4">
       <Navbar></Navbar>
     </header>
   );
