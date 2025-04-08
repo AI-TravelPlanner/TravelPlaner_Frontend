@@ -5,7 +5,7 @@ import WeatherCard from "./WeatherCard";
 
 const DayCard = ({ itinerary, weatherDetails, hotelDetails }) => {
   return (
-    <div className="w-100 h-42 rounded-lg shadow-xl border p-3 border-amber-800">
+    <div className="w-100 h-50 rounded-lg shadow-xl border p-3 border-amber-800">
       <div className="grid grid-cols-12 w-full gap-1 rounded-lg min-w-0 min-h-0">
         {/* Hotel Info/ */}
         <div className="col-span-4 p-1">
@@ -23,7 +23,7 @@ const DayCard = ({ itinerary, weatherDetails, hotelDetails }) => {
         </div>
 
         {/* Daily Activity area */}
-        <div className="col-span-8 flex flex-col min-w-0 min-h-0">
+        <div className="col-span-8 flex gap-1 flex-col min-w-0 min-h-0">
           {itinerary.activities.map((activity, index) => (
             <div className="flex-shrink-0" key={index}>
               <ActivityCard activity={activity} />
