@@ -19,9 +19,9 @@ const InfoDisplayCard = ({ planTripFromGeminiJson }) => {
   const dayChunks = chunkArray(dailyItinery, 3);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 max-h-screen overflow-y-auto scrollbar-none">
+    <div className="flex flex-col sm:flex-row gap-4 max-h-screen overflow-y-auto scrollbar-none ">
       {dayChunks.map((chunk, colIndex) => (
-        <div key={colIndex} className="flex flex-col gap-4">
+        <div key={colIndex} className="flex flex-col gap-4 shadow-md rounded-lg bg-gray-100 dark:bg-gray-800">
           {chunk.map((itinerary, index) => (
             <DayCard
               key={colIndex * 3 + index}

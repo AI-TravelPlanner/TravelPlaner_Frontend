@@ -1,10 +1,38 @@
-import React, { useState } from "react";
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  PHOTO_REF_URL,
+  getPlaceDetail,
+} from "@/service/thirdparty/GooglePhotoAPI";
 
 const HotelCard = ({ hotelDetails }) => {
+  const [photoUrl, setPhotoUrl] = useState();
+
+  useEffect(() => {
+    hotelDetails && GetPlacePhoto();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hotelDetails]);
+
+  const GetPlacePhoto = async () => {
+    const data = {
+      textQuery: hotelDetails?.hotelName,
+    };
+
+    const result = await getPlaceDetail(data).then((resp) => {
+      console.log(resp.data.places[0].photos[3].name + " 1st photo");
+
+      const photoUrl = PHOTO_REF_URL.replace(
+        "{NAME}",
+        resp.data.places[0].photos[3].name
+      );
+      setPhotoUrl(photoUrl);
+    });
+  };
+
   // This component will display the hotel information in a card format
 
   const [isFlipped, setIsFlipped] = useState(false);
@@ -39,17 +67,23 @@ const HotelCard = ({ hotelDetails }) => {
             backfaceVisibility: "hidden",
           }}
         >
-          <div className="px-3">
-            <img
-              // src="https://via.placeholder.com/150"
-              src="/src/assets/hotel-img/Sheraton.jpg"
-              alt="Activity"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <Link
+            to={
+              "https://www.google.com/maps/search/?q=" + hotelDetails?.hotelName
+            }
+            target="_blank"
+          >
+                <div className="col-span-3 rounded-lg overflow-hidden flex-shrink-0 hover:scale-110 transition-all">
+              <img
+                src={photoUrl ? photoUrl : "/Sheraton.jpg"}
+                alt="Activity"
+                className="w-full h-[90px] object-cover"
+              />
+            </div>
+          </Link>
           <h2 className="text-[75%] font-bold">{hotelDetails.hotelName}</h2>
           <p className="text-xs text-gray-600">
-            {hotelDetails.pricePerNight}/Night
+            {hotelDetails.pricePerNight}/Night in CAD
           </p>
           {/* <p className="text-xs text-gray-600">{hotelDetails.location}</p> */}
         </div>
