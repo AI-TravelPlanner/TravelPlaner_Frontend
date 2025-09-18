@@ -180,15 +180,11 @@ const TravelForm = ({ handleAnimate, setPlanTripFromGeminiJson }) => {
     setValidations({});
 
     const prompt = {
-      prompt: `Plan a trip to ${formData.location} from ${
-        formData.dateRange.from
-      } to ${formData.dateRange.to}. We are ${
-        formData.travelWith
-      }. The budget is ${
-        formData.selectedBudgetOption || formData.customBudget
-      }. The theme of the trip is ${
-        formData.tripTheme
-      }. Each day should include at least 3 activities and keep activity name max two words.`,
+      prompt: `Plan a trip to ${formData.location} from ${formData.dateRange.from
+        } to ${formData.dateRange.to}. We are ${formData.travelWith
+        }. The budget is ${formData.selectedBudgetOption || formData.customBudget
+        }. The theme of the trip is ${formData.tripTheme
+        }. Each day should include at least 3 activities and keep activity name max two words.`,
     };
 
     planTrip("/plan-trip", prompt)
@@ -273,7 +269,7 @@ const TravelForm = ({ handleAnimate, setPlanTripFromGeminiJson }) => {
         )}
       >
         <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold mb-8 text-center">
-          ✨ Plan Your Perfect Trip ✨
+          ✨ Plan Your Canadian Trip ✨
         </h2>
         <motion.div
           key={step}
@@ -314,7 +310,7 @@ const TravelForm = ({ handleAnimate, setPlanTripFromGeminiJson }) => {
                   htmlFor="location"
                   className="block mb-2 text-lg font-semibold"
                 >
-                  Location of Travel
+                  Province
                 </Label>
                 <Input
                   type="text"
